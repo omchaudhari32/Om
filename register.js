@@ -85,48 +85,7 @@ function register(event) {
   }
   var gettingEmail;
   
-  function forgotPassword(event) {
-    event.preventDefault();
   
-    var dataFromLs = JSON.parse(localStorage.getItem("userData"));
-    var emailFromUser = document.getElementById("email").value;
-  
-    gettingEmail = emailFromUser;
-  
-    var flag = false;
-    for (var i = 0; i < dataFromLs.length; i++) {
-      if (dataFromLs[i].email === emailFromUser) {
-        flag = true;
-      }
-    }
-    if (flag) {
-      var newCode = `<input type="password" id="password" class="form-input" placeholder="Enter New Password"><br><button onClick="newPassword()" class="form-input form-submit"> New Password</button>`;
-      var divFromHtml = document.getElementById("change");
-      divFromHtml.innerHTML = newCode;
-      alert("Now set New Password");
-    } else {
-      alert("Please Enter Register Email");
-      document.getElementById("email").value = "";
-    }
-  }
-  
-  function newPassword(i) {
-    var dataFromLs = JSON.parse(localStorage.getItem("userData"));
-    var userPassword = document.getElementById("password").value;
-  
-    // console.log(passwordFromUser,"Password");
-    for (var i = 0; i < dataFromLs.length; i++) {
-      if (dataFromLs[i].email === gettingEmail) {
-        dataFromLs[i].password = userPassword;
-      }
-    }
-  
-    localStorage.setItem("userData", JSON.stringify(dataFromLs));
-    gettingEmail = "";
-    // divFromHtml.innerHTML =rest;
-    window.location.href = "login.html";
-    alert("Password Changed , Now Login");
-  }
   function add(event) {
     event.preventDefault();
   
@@ -145,3 +104,4 @@ function register(event) {
     document.getElementById("price").value="";
     
   }
+  
