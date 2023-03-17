@@ -1,34 +1,58 @@
-//Q1  
-var array =[34,45,65,23,5,676,32,34]
- var target = 66
- for(i=0; i<=array length; i++ ){
- for(j=0; j<=array length; j++ ){
-if (array[i] + array[j] = = = target)
-flag = true;
-if(flag = true){
-   else (not Found Number)
-} 
+Q 1
+var array =[ 34,45,65,23,5,676,32,34];
+var target =66;
+
+for(var i=0;i<array.length-1;i++){
+    for(var j=i; j<array.length; j++){
+        if(array[i] + array[j] === target){
+            flag =true;
+            console.log(array[i], array[j]);
+        }
+    }
 }
-}
 
 
-
-
-//Q2 
+Q2 
 var start = 5768;
-var end = 78656;
-var nums= 0;
-for(var i= 0; i<= array length; i=+2){
-    console.log(addition of number )
+var end =78656;
 
+var start =5768;
+var end =78656;
+var sum =0;
+
+for(var i= start+1; i<end ; i++){
+
+    if(i % 2 == 0){
+        sum +=i;
+    }
+   
+}
+console.log(sum);
+
+Q 3 
+var number= 19;
+var array =[3,5,79,45,0,-67,23,77,19,78,12];
+var index =null;
+var flag =false;
+for(var i=0; i<array.length; i++){
+    if( array[i] === number){
+        index = i;
+        flag =true;
+    }
+}
+if(flag){
+    console.log(index);
+}
+else{
+    console.log("Not Found");
 }
 
-//Q4 
-var array =[34,45,567,78,89,34,67,87,34,78,89]
-var object=[]
-for(var i= 0; i<length;i++){
-    if(array )
+Q4 
+var array =[34,45,567,78,89,34,67,87,34,78,89];
+var obj ={};
+
+for(var i=0; i<array.length; i++){
+    obj[i] = array[i];
 }
-if(0:34, 1:45, 2: 567, 3: 78, 4: 89, 5: 34, 6: 67, 7:87,8:34,9:78,10:89){
-    array 
-}
+console.log(obj);
+
