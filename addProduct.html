@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Product</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mobile.css" />
+
+    <script src="https://kit.fontawesome.com/d98822fee5.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="sign-in">
+        <div>
+            <div id="sign-in-top">
+                <h2>Welcome to Snapdeal</h2>
+                <p onclick="window.location.href='/login.html'"> Click to Log in or use</p>
+                <div>
+                    <form onsubmit="add(event)">
+                        <label class="form-label">Enter Product Name</label><br/>
+                        <input type="text" id="name" class="form-input" placeholder="Enter Product Name" required /><br/>
+                        <label class="form-label">Enter Product Image</label><br/>
+                        <input type="text" id="image" class="form-input" placeholder="add url" required /><br/>
+                        <label class="form-label">Enter Price</label><br/>
+                        <input type="number" id="price" class="form-input" placeholder="Enter Product Price" required /><br/>
+                        <input type="submit" class="form-input form-submit" value="Add Product" /><br/>
+                        <label class="form-bottom-text" onclick="window.location.href='/index.html'"><span>Product
+                                View</span></label>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./register.js"></script>
+</body>
+
+</html>

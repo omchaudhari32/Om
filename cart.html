@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mobile.css" />
+
+    <script src="https://kit.fontawesome.com/d98822fee5.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div>
+        <h1>Cart</h1>
+    </div>
+
+    <div id="cart">
+        <span>
+            <p>Your Shopping Bag is Empty!!</p>
+            <p>
+                Sign in to link items to your account, or view items already in your
+                account
+            </p>
+            <button onclick="window.location.href='/login.html'">
+                click to continue
+            </button>
+        </span>
+    </div>
+
+    <div id="logo">
+     
+    </div>
+
+    
+    <script>
+        window.onload = function () {
+            var dataFromLs = JSON.parse(localStorage.getItem("currentUser"));
+
+            if (!dataFromLs) {
+                 window.location.href = "/login.html";
+                alert("Please login to add cart");
+            } else {
+                var dataFromLs = JSON.parse(localStorage.getItem("userData"));
+                var currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+                var divFromHtml = document.getElementById("cart");
+                var display = [];
+                var cartProducts;
+                var flag = false;
+
+                for (var i = 0; i < dataFromLs.length; i++) {
+                    if (
+                        dataFromLs[i].email === currentUser["currentUserEmail"] &&
+                        dataFromLs[i].cartProducts.length > 0
+                    ) {
+                        cartProducts = dataFromLs[i].cartProducts;
+                        flag = true;
+                    }
+                }
+                console.log(flag, "flag");
+                if (flag === false) {
+                    window.location.href = "index.html";
+                    alert("Your cart is empty");
+                } else {
+                    for (var i = 0; i < cartProducts.length; i++) {
+                        display += `<div><div><img src="${cartProducts[i].image}"></div><div><p>${cartProducts[i].name}</p><p>${cartProducts[i].price}</p></div></div>`;
+                    }
+                }
+                display += `<button onclick='buy()'>Click to Buy</button>`;
+
+                divFromHtml.innerHTML = display;
+            }
+        };
+
+        function buy() {
+            var dataFromLs = JSON.parse(localStorage.getItem("userData"));
+            var currentUser = JSON.parse(localStorage.getItem("currentUser"));
+            var updateUser = [];
+
+            for (var i = 0; i < dataFromLs.length; i++) {
+                if (
+                    dataFromLs[i].email === currentUser["currentUserEmail"] &&
+                    dataFromLs[i].cartProducts
+                ) {
+                    dataFromLs[i].cartProducts = [];
+                    updateUser.push(dataFromLs[i]);
+                } else {
+                    updateUser.push(dataFromLs[i]);
+                }
+            }
+
+            localStorage.setItem("userData", JSON.stringify(updateUser));
+            window.location.href = "index.html";
+            alert("product will be dilevered soon");
+        }
+    </script>
+</body>
+
+</html>

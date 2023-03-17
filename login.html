@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log In</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mobile.css" />
+
+    <script src="https://kit.fontawesome.com/d98822fee5.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="sign-in">
+        <div>
+            <div id="sign-in-top">
+                <h2>Welcome to snapdeal</h2>
+                <p onclick="window.location.href='Registration.html'">
+                    Join / Sign In using
+                </p>
+              
+        
+            <div id="sign-in-bot">
+               
+                <div>
+                    <form onsubmit="login(event)">
+
+                        <label class="form-label">Enter Email</label><br/>
+                        <input type="email" id="email" class="form-input" placeholder="Enter Mail Id" required /><br/>
+                        <label class="form-label">Enter User Password</label><br/>
+                        <input type="password" id="password" class="form-input" placeholder="Enter password" required /><br/>
+
+                        <input type="submit" class="form-input form-submit" value="Sign Up" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./register.js"></script>
+</body>
+
+</html>
